@@ -24,7 +24,7 @@ void FillScreenPixels(SDL_Surface * surface)
 		for(int j = 0; j < IMAGE_HEIGHT; ++j)
 		{
 			// random color
-			seed = /*rand() %*/ 255;
+			seed = rand() % 255;
 			rand1 = seed;
 			seed = rand() % 255;
 			rand2 = seed;
