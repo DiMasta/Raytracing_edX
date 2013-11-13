@@ -65,13 +65,13 @@
     <IncludePath>..\SDL2-devel-2.0.1-VC\SDL2-2.0.1\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\VLADO\Courses\Ray Tracing\Edx_CG\Ray_Tracing\Project\Raytracing_edX\SDL2-devel-2.0.1-VC\SDL2-2.0.1\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\VLADO\Courses\Ray Tracing\Edx_CG\Ray_Tracing\Project\Raytracing_edX_2\SDL_1\SDL-1.2.15\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LibraryPath>..\SDL2-devel-2.0.1-VC\SDL2-2.0.1\include;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>D:\VLADO\Courses\Ray Tracing\Edx_CG\Ray_Tracing\Project\Raytracing_edX\SDL2-devel-2.0.1-VC\SDL2-2.0.1\lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>D:\VLADO\Courses\Ray Tracing\Edx_CG\Ray_Tracing\Project\Raytracing_edX_2\SDL_1\SDL-1.2.15\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -91,7 +91,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL.lib;SDLmain.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
