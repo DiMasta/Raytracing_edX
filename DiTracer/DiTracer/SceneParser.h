@@ -20,6 +20,8 @@ public:
 	void ReadMaxDepth(std::ifstream &sceneStream, Scene &scene);
 	void ReadImageOutputPath(std::ifstream &sceneStream, Scene &scene);
 	void ReadCameraParamters(std::ifstream &sceneStream, Scene &scene);
+	void ReadSphereParameters(std::ifstream &sceneStream, Scene &scene);
+	void ReadMaxverts(std::ifstream &sceneStream);
 
 private:
 	const char* cgSceneName;

@@ -1,5 +1,5 @@
 #include "SceneParser.h"
-
+#include "Sphere.h"
 
 #include <fstream>
 #include <string>
@@ -39,6 +39,12 @@ Scene SceneParser::ReadScene(void)
 		if(!wordIdentifier.compare(CAMERA_COMMAND))
 			ReadCameraParamters(sceneFile, cgScene);
 
+		//Geometry
+		if(!wordIdentifier.compare(SPHERE_COMMAND))
+			ReadSphereParameters(sceneFile, cgScene);
+
+		if(!wordIdentifier.compare(MAXVERTS_COMMAND))
+			ReadMaxverts(sceneFile);
 	}
 
 	return cgScene;
@@ -107,4 +113,27 @@ void SceneParser::ReadCameraParamters(ifstream &sceneStream, Scene &scene)
 	Camera* camera = new Camera(lookfromx, lookfromy, lookfromz, lookatx, lookaty, lookatz, upx, upy, upz, fov);
 
 	scene.SetCamera(camera);
+}
+
+void SceneParser::ReadSphereParameters(ifstream &sceneStream, Scene &scene)
+{
+	int x;
+	int y;
+	int z;
+	int radius;
+
+	sceneStream >> x;
+	sceneStream >> y;
+	sceneStream >> z;
+	sceneStream >> radius;
+
+	Sphere sphere(x, y, z, radius);
+
+	scene.AddRenderableObject(sphere);
+}
+
+void SceneParser::ReadMaxverts(ifstream &sceneStream)
+{
+	int maxverts;
+	sceneStream >> maxverts;
 }
