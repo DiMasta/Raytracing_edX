@@ -2,8 +2,9 @@
 
 #include "SDL.h"
 
-const int IMAGE_WIDHT = 640;
-const int IMAGE_HEIGHT = 480;
+#include "SceneParser.h"
+#include "Constants.h"
+
 
 /// Sets pixel color
 void PutPixel32_nolock(SDL_Surface * surface, int x, int y, Uint32 color)
@@ -42,11 +43,15 @@ int main( int argc, char* args[] )
 {
 	srand(time(NULL));
 
+	// First we must parse the scene file (read the information (for the CG scene) and store it accordingly)
+	SceneParser sceneParser(SCENE_FILE_NAME);
+	Scene cgScene = sceneParser.ReadScene();
+
     //Start SDL
     SDL_Init( SDL_INIT_EVERYTHING );
     
 	SDL_Surface* displaysurface = SDL_SetVideoMode(
-        IMAGE_WIDHT, IMAGE_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
+		cgScene.GetImageWidth(), cgScene.GetImageHeight(), 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
 
 	unsigned backgroundcolor = SDL_MapRGB(displaysurface->format, 0, 64, 0);
 	unsigned red = SDL_MapRGB(displaysurface->format, 255, 0, 0);
