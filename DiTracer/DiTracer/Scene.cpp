@@ -18,3 +18,8 @@ void Scene::AddRenderableObject(SceneObject rendObject)
 {
 	m_renderableObjects.push_back(rendObject);
 }
+
+void Scene::AddVertex(Vertex vertex)
+{
+	m_vertecies.push_back(vertex);
+}

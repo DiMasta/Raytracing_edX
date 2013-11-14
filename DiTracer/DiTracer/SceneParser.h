@@ -22,6 +22,11 @@ public:
 	void ReadCameraParamters(std::ifstream &sceneStream, Scene &scene);
 	void ReadSphereParameters(std::ifstream &sceneStream, Scene &scene);
 	void ReadMaxverts(std::ifstream &sceneStream);
+	void ReadMaxNormals(std::ifstream &sceneStream);
+	void ReadVertex(std::ifstream &sceneStream, Scene &scene);
+	void ReadVertNormal(std::ifstream &sceneStream);
+	void ReadTriangleParameters(std::ifstream &sceneStream, Scene &scene);
+	void ReadTriNormal(std::ifstream &sceneStream);
 
 private:
 	const char* cgSceneName;

@@ -3,6 +3,7 @@
 
 #include "SceneObject.h"
 #include "Camera.h"
+#include "Vertex.h"
 
 #include <vector>
 #include <string>
@@ -21,6 +22,7 @@ public:
 	inline std::string GetOutputImagePath(void){return m_imageOutputPath;}
 	inline Camera* GetCamera(void){return m_camera;}
 	inline std::vector<SceneObject> GetRenderableObjects(void){return m_renderableObjects;}
+	inline std::vector<Vertex> GetVertecies(void){return m_vertecies;}
 
 	inline void SetImageWidth(int width){m_imageWidth = width;}
 	inline void SetImageHeight(int height){m_imageHeight = height;}
@@ -30,9 +32,10 @@ public:
 	inline void SetRenderableObject(std::vector<SceneObject> renderableObjects){m_renderableObjects = renderableObjects;}
 
 	void AddRenderableObject(SceneObject rendObject);
+	void AddVertex(Vertex vertex);
 private:
 	std::vector<SceneObject> m_renderableObjects;
-	//std::vector<SceneObject> m_sceneObjects;
+	std::vector<Vertex> m_vertecies;
 	int m_imageWidth;
 	int m_imageHeight;
 	int m_maxdepth;

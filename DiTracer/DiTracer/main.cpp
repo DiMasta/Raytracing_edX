@@ -4,6 +4,7 @@
 
 #include "SceneParser.h"
 #include "Constants.h"
+#include "Render.h"
 
 
 /// Sets pixel color
@@ -15,7 +16,7 @@ void PutPixel32_nolock(SDL_Surface * surface, int x, int y, Uint32 color)
 }
 
 /// Sets the color of all screen pixels
-void FillScreenPixels(SDL_Surface * surface)
+void FillScreenPixels(SDL_Surface* surface)
 {
 	unsigned randColor;
 	int rand1, rand2, rand3, seed;
@@ -53,14 +54,13 @@ int main( int argc, char* args[] )
 	SDL_Surface* displaysurface = SDL_SetVideoMode(
 		cgScene.GetImageWidth(), cgScene.GetImageHeight(), 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
 
-	unsigned backgroundcolor = SDL_MapRGB(displaysurface->format, 0, 64, 0);
-	unsigned red = SDL_MapRGB(displaysurface->format, 255, 0, 0);
+	//FillScreenPixels(displaysurface);
+	Renderer renderEngine(cgScene);
+	renderEngine.Render(displaysurface);
 
     SDL_Event sdlevent;
     bool running = true;
-
-	FillScreenPixels(displaysurface);
-
+	
     while(running)
     {
         while(SDL_PollEvent(&sdlevent))
@@ -74,7 +74,7 @@ int main( int argc, char* args[] )
 			}
 		}
 
-		FillScreenPixels(displaysurface);
+		//FillScreenPixels(displaysurface);
 		SDL_Flip(displaysurface);
 		SDL_Delay(20);
 	}

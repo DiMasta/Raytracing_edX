@@ -65,13 +65,13 @@
     <IncludePath>..\SDL2-devel-2.0.1-VC\SDL2-2.0.1\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>F:\Courses\CG RayTracing\Raytracing_edX\SDL_1\SDL-1.2.15\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\VLADO\Courses\Ray Tracing\Edx_CG\Ray_Tracing\Project\Raytracing_edX_2\SDL_1\SDL-1.2.15\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LibraryPath>..\SDL2-devel-2.0.1-VC\SDL2-2.0.1\include;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>F:\Courses\CG RayTracing\Raytracing_edX\SDL_1\SDL-1.2.15\lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>D:\VLADO\Courses\Ray Tracing\Edx_CG\Ray_Tracing\Project\Raytracing_edX_2\SDL_1\SDL-1.2.15\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -124,18 +124,26 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Ray.cpp" />
+    <ClCompile Include="Rederer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneObject.cpp" />
     <ClCompile Include="SceneParser.cpp" />
     <ClCompile Include="Sphere.cpp" />
+    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="Vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="Ray.h" />
+    <ClInclude Include="Render.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneObject.h" />
     <ClInclude Include="SceneParser.h" />
     <ClInclude Include="Sphere.h" />
+    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,7 @@
 #include "SceneParser.h"
 #include "Sphere.h"
+#include "Vertex.h"
+#include "Triangle.h"
 
 #include <fstream>
 #include <string>
@@ -20,10 +22,8 @@ Scene SceneParser::ReadScene(void)
 
 	string wordIdentifier;
 
-	while(sceneFile)
+	while(sceneFile >> wordIdentifier)
 	{
-		sceneFile >> wordIdentifier;
-
 		if(!wordIdentifier.compare(COMMENT_COMMAND))
 			ReadComment(sceneFile);
 
@@ -45,6 +45,21 @@ Scene SceneParser::ReadScene(void)
 
 		if(!wordIdentifier.compare(MAXVERTS_COMMAND))
 			ReadMaxverts(sceneFile);
+
+		if(!wordIdentifier.compare(MAXNORMALS_COMMAND))
+			ReadMaxNormals(sceneFile);
+
+		if(!wordIdentifier.compare(VERTEX_COMMAND))
+			ReadVertex(sceneFile, cgScene);
+
+		if(!wordIdentifier.compare(VERTNORMAL_COMMAND))
+			ReadVertNormal(sceneFile);
+
+		if(!wordIdentifier.compare(TRIANGLE_COMMAND))
+			ReadTriangleParameters(sceneFile, cgScene);
+
+		if(!wordIdentifier.compare(TRINORMAL_COMMAND))
+			ReadTriNormal(sceneFile);
 	}
 
 	return cgScene;
@@ -136,4 +151,70 @@ void SceneParser::ReadMaxverts(ifstream &sceneStream)
 {
 	int maxverts;
 	sceneStream >> maxverts;
+}
+
+void SceneParser::ReadMaxNormals(ifstream &sceneStream)
+{
+	int maxNormals;
+	sceneStream >> maxNormals;
+}
+
+void SceneParser::ReadVertex(ifstream &sceneStream, Scene &scene)
+{
+	float xCoord;
+	float yCoord;
+	float zCoord;
+
+	sceneStream >> xCoord;
+	sceneStream >> yCoord;
+	sceneStream >> zCoord;
+
+	Vertex vertex(xCoord, yCoord, zCoord);
+
+	scene.AddVertex(vertex);
+}
+
+void SceneParser::ReadVertNormal(ifstream &sceneStream)
+{
+	float x;
+	float y;
+	float z;
+
+	float nx;
+	float ny;
+	float nz;
+
+	sceneStream >> x;
+	sceneStream >> y;
+	sceneStream >> z;
+
+	sceneStream >> nx;
+	sceneStream >> ny;
+	sceneStream >> nz;
+}
+
+void SceneParser::ReadTriangleParameters(ifstream &sceneStream, Scene &scene)
+{
+	int vertIndex0;
+	int vertIndex1;
+	int vertIndex2;
+
+	sceneStream >> vertIndex0;
+	sceneStream >> vertIndex1;
+	sceneStream >> vertIndex2;
+
+	Triangle triangle(vertIndex0, vertIndex1, vertIndex2, scene);
+
+	scene.AddRenderableObject(triangle);
+}
+
+void SceneParser::ReadTriNormal(ifstream &sceneStream)
+{
+	float v1;
+	float v2;
+	float v3;
+
+	sceneStream >> v1;
+	sceneStream >> v2;
+	sceneStream >> v3;
 }
