@@ -4,6 +4,7 @@
 #include "SDL.h"
 #include "Scene.h"
 #include "Ray.h"
+#include "Sphere.h"
 
 class Renderer
 {
@@ -19,7 +20,9 @@ public:
 	void Render(SDL_Surface* surface);
 	void PutPixelColor(SDL_Surface* surface, int x, int y, Uint32 color);
 
-	Ray RayThruPixel(Camera* camera, int i, int j);
+	Ray RayThruPixel(int i, int j);
+
+	bool RaySphereIntersection(Ray ray, Sphere sphere);
 private:
 	Scene m_scene;
 };

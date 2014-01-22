@@ -1,28 +1,23 @@
 #ifndef __SPHERE_H__
 #define __SPHERE_H__
 
+#include "Vector.h"
 #include "SceneObject.h"
 
 class Sphere : public SceneObject
 {
 public:
 	Sphere();
-	Sphere(int x, int y, int z, int radius);
+	Sphere(float x, float y, float z, int radius);
 	~Sphere();
 
-	inline int GetX(){return m_x;}
-	inline int GetY(){return m_y;}
-	inline int GetZ(){return m_z;}
+	inline Vector GetCenter(){return m_center;}
 	inline int GetRadius(){return m_radius;}
 
-	inline int SetX(int x){m_x = x;}
-	inline int SetY(int y){m_y = y;}
-	inline int SetZ(int z){m_z = z;}
-	inline int SetRadius(int radius){m_radius = radius;}
+	inline void SetCenter(Vector center){m_center = center;}
+	inline void SetRadius(int radius){m_radius = radius;}
 private:
-	int m_x;
-	int m_y;
-	int m_z;
+	Vector m_center;
 	int m_radius;
 };
 

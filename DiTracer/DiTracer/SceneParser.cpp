@@ -103,15 +103,15 @@ void SceneParser::ReadImageOutputPath(ifstream &sceneStream, Scene &scene)
 
 void SceneParser::ReadCameraParamters(ifstream &sceneStream, Scene &scene)
 {
-	int lookfromx;
-	int lookfromy;
-	int lookfromz;
-	int lookatx;
-	int lookaty;
-	int lookatz;
-	int upx;
-	int upy;
-	int upz;
+	float lookfromx;
+	float lookfromy;
+	float lookfromz;
+	float lookatx;
+	float lookaty;
+	float lookatz;
+	float upx;
+	float upy;
+	float upz;
 	int fov;
 
 	sceneStream >> lookfromx;
@@ -132,9 +132,9 @@ void SceneParser::ReadCameraParamters(ifstream &sceneStream, Scene &scene)
 
 void SceneParser::ReadSphereParameters(ifstream &sceneStream, Scene &scene)
 {
-	int x;
-	int y;
-	int z;
+	float x;
+	float y;
+	float z;
 	int radius;
 
 	sceneStream >> x;
